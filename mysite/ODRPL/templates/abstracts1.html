@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Search</title>
+	<meta name="description" content="On Demand Research Paper Locator">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/all.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/slick.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/animate.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/circle.css" type="text/css">
+
+</head>
+
+<body>
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="outer">
+			<!-- Google Chrome -->
+			<div class="infinityChrome">
+				<div></div>
+				<div></div>
+				<div></div>				
+			</div>
+
+			<!-- Safari and others -->
+			<div class="infinity">
+				<div>
+					<span></span>
+				</div>
+				<div>
+					<span></span>
+				</div>
+				<div>
+					<span></span>
+				</div>
+			</div>
+			<!-- Stuff -->
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-outer">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+						<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
+		</div>
+	</div>
+
+	<!-- desktop header -->
+	<header class="desktop-header-3 fixed-top">
+
+		<div class="container">
+
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Bolby" height="108" width="108" /></a> <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+				
+				<div class="nav-search">
+					
+					<form method="post" action="abstracts.html" class="search-form">
+						
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" required>
+							<div class="input-group-append">
+								<a href="#advanced-search" class="btn btn-outline-danger work-content" type="button">Advanced</a>
+								<button type="submit" class="btn btn-danger" type="button">Search</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+
+				<div id="advanced-search" class="white-popup zoom-anim-dialog mfp-hide">
+
+					<h5>Search Criteria</h5>
+
+					<hr>
+
+					<form method="post" action="abstracts.html" class="search-form">
+
+						<div class="form-group">
+							<label>Number of Pages:</label>
+							<input type="number" class="form-control" placeholder="Number of Pages" required="required">
+						</div>
+
+						<div class="form-group">
+							<label>Estimated Time: (mm)</label>
+							<input type="number" class="form-control" placeholder="Estimated Time" required="required">
+						</div>
+
+						<div class="form-group">
+							<label>Processing Mode</label>
+							<select class="form-control">
+								<option value="Now" selected>Now</option>
+								<option value="Batch">Batch</option>
+							</select>
+						</div>
+
+						<button type="submit" href="abstracts.html" class="btn btn-default">Search</button>
+
+					</form>
+
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav ml-auto scrollspy">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">
+								<i class="fas fa-arrow-left"></i> Go Back
+							</a>
+						</li>				
+					</ul>
+				</div>
+			</nav>
+
+		</div>
+
+	</header>
+
+	<!-- main layout -->
+	<main class="content-3" style="margin-top: 50px;">
+
+		<!-- section experience -->
+		<section id="experience">
+
+			<div class="container">
+
+				<!-- section title -->
+				<h2 class="section-title wow fadeInUp">Search Results</h2>
+
+				<a href="#" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: 20px; margin-left: 15px;" id="selection">Search For Full Papers</a>
+
+				<div class="collapse" id="collapseExample" style="margin-top: 10px; margin-left: 15px;">
+					<div class="card">
+						<div class="card-body">
+							<div class="form-check">
+
+								<div class="chickyboxes">
+									<input type="checkbox" id="select-all" onClick="toggle(this)">
+									<label for="select-all">Select All</label>
+								</div>
+
+							</div>
+							<a href="loader.html">
+								<button class="btn btn-default" style="margin-top: 15px;">
+									Search For Full Papers
+								</button>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="spacer" data-height="60"></div>
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<!-- timeline wrapper -->
+						<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+
+									<span class="time">
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star"></span>
+									</span>
+
+									<h3 class="title">
+
+										<p class="without-selection">Paper For Academic Research</p>
+										<div class="juiceboxes with-selection">
+											<input type="checkbox" id="box-1" name="check">
+											<label for="box-1">Paper For Academic Research</label>
+										</div>
+
+									</h3>
+
+									<div class="c100 p85 small">
+										<span>85%</span>
+										<div class="slice">
+											<div class="bar"></div>
+											<div class="fill"></div>
+										</div>
+									</div>
+
+									<div style="margin-left: 100px;">									
+
+										<p>
+											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
+											<span id="dots1">...</span>
+											<span id="more1" style="display: none;">
+												Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
+											</span>
+										</p>
+										<button class="btn btn-secondary" onclick="readmore(1)" id="myBtn1" style="margin-top: 15px;">Read more</button>
+
+									</div>
+
+									<div class="spacer" data-height="50"></div>
+
+								</div>
+
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+
+									<span class="time">
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star"></span>
+									</span>
+
+									<h3 class="title">
+
+										<p class="without-selection">Paper For Academic Research</p>
+										<div class="juiceboxes with-selection">
+											<input type="checkbox" id="box-2" name="check">
+											<label for="box-2">Paper For Academic Research</label>
+										</div>
+
+									</h3>
+
+									<div class="c100 p85 small">
+										<span>85%</span>
+										<div class="slice">
+											<div class="bar"></div>
+											<div class="fill"></div>
+										</div>
+									</div>
+
+									<div style="margin-left: 100px;">
+
+										<p>
+											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
+											<span id="dots2">...</span>
+											<span id="more2" style="display: none;">
+												Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
+											</span>
+										</p>
+										<button class="btn btn-secondary" onclick="readmore(2)" id="myBtn2" style="margin-top: 15px;">Read more</button>
+
+									</div>
+
+									<div class="spacer" data-height="50"></div>
+
+								</div>
+
+							</div>
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+
+									<span class="time">
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star text-warning"></span>
+										<span class="fa fa-star"></span>
+									</span>
+
+									<h3 class="title">
+
+										<p class="without-selection">Paper For Academic Research</p>
+										<div class="juiceboxes with-selection">
+											<input type="checkbox" id="box-3" name="check">
+											<label for="box-3">Paper For Academic Research</label>
+										</div>
+
+									</h3>
+
+									<div class="c100 p85 small">
+										<span>85%</span>
+										<div class="slice">
+											<div class="bar"></div>
+											<div class="fill"></div>
+										</div>
+									</div>
+
+									<div style="margin-left: 100px;">
+
+										<p>
+											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
+											<span id="dots3">...</span>
+											<span id="more3" style="display: none;">
+												Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
+											</span>
+										</p>
+										<button class="btn btn-secondary" onclick="readmore(3)" id="myBtn3" style="margin-top: 15px;">Read more</button>
+
+									</div>
+
+									<div class="spacer" data-height="50"></div>
+
+								</div>
+
+							</div>
+
+							<!-- main line -->
+							<span class="line"></span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="center">
+
+					<div class="pagination">
+
+						<a href="#">&laquo;</a>
+						<a href="#" class="active">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">5</a>
+						<a href="#">6</a>
+						<a href="#">&raquo;</a>
+
+					</div>
+
+				</div>				
+
+			</div>
+
+		</section>
+
+		<div class="spacer" data-height="96"></div>
+
+		<footer class="footer">
+			<div class="container">
+				<span class="copyright">© All Rights Reserved.</span>
+			</div>
+		</footer>
+
+	</main>
+
+	<!-- Go to top button -->
+	<a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+
+	<!-- SCRIPTS -->
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.counterup.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/infinite-scroll.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/contact.js"></script>
+	<script src="js/validator.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/morphext.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script>
+
+		$('#select-all').click(function(event) {   
+			if(this.checked) {
+				$(':checkbox').each(function() {
+					this.checked = true;                        
+				});
+			} else {
+				$(':checkbox').each(function() {
+					this.checked = false;                       
+				});
+			}
+		});
+
+		$('input[name=check]').click(function() {
+			$("#select-all").prop("checked", false);
+		});
+
+		function readmore (value) {
+
+			var dots = document.getElementById("dots"+value);
+			var moreText = document.getElementById("more"+value);
+			var btnText = document.getElementById("myBtn"+value);
+
+			if (dots.style.display === "none") {
+				dots.style.display = "inline";
+				btnText.innerHTML = "Read more"; 
+				moreText.style.display = "none";
+			} else {
+				dots.style.display = "none";
+				btnText.innerHTML = "Read less"; 
+				moreText.style.display = "inline";
+			}
+
+		}
+
+		$('#selection').click(function() {
+			$(this).text(function(i, text){
+				if(text === "Search For Full Papers") {
+					$('.with-selection').css("display", "block");
+					$('.without-selection').css("display", "none");
+				} else {
+					$('.with-selection').css("display", "none");
+					$('.without-selection').css("display", "block");
+				}
+				return text === "Exit Selection Mode" ? "Search For Full Papers" : "Exit Selection Mode";
+			})
+
+		});
+
+	</script>
+
+</body>
+</html>
