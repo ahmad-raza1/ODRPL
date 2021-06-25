@@ -40,12 +40,12 @@
 			<img src="{% static 'images/logo.png' %}" alt="Bolby" class="mb-4" height="200" width="250" />
 
 			<!-- info -->
-			
 			<form method="post" action="{% url 'abstracts' %}" class="search-form">
 				{% csrf_token %}
+				<!--{{ form }}-->
 
 				<div class="form-group">
-					<input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Search" required="required">
+					<input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Search" max_length="100" required>
 				</div>
 
 				<a href="#advanced-search" class="work-content">Advanced Search</a>

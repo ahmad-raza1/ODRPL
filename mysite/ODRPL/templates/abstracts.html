@@ -20,7 +20,7 @@
 				{% csrf_token %}
 					
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search" required>
+						<input type="text" class="form-control" placeholder="Search", value="{{ query_text }}" required>
 						<div class="input-group-append">
 							<a href="#advanced-search" class="btn btn-outline-danger work-content" type="button">Advanced</a>
 							<button type="submit" class="btn btn-danger" type="button">Search</button>
@@ -122,6 +122,8 @@
 					<!-- timeline wrapper -->
 					<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
 
+						{% for i in '0123'|make_list %}
+
 						<!-- timeline item -->
 						<div class="timeline-container wow fadeInUp">
 							<div class="content">
@@ -138,8 +140,8 @@
 
 									<p class="without-selection">Paper For Academic Research</p>
 									<div class="juiceboxes with-selection">
-										<input type="checkbox" id="box-1" name="check">
-										<label for="box-1">Paper For Academic Research</label>
+										<input type="checkbox" id="box-{{ forloop.counter }}" name="check">
+										<label for="box-{{ forloop.counter }}">Paper For Academic Research</label>
 									</div>
 
 								</h3>
@@ -156,12 +158,12 @@
 
 									<p>
 										Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
-										<span id="dots1">...</span>
-										<span id="more1" style="display: none;">
+										<span id="dots{{ forloop.counter }}">...</span>
+										<span id="more{{ forloop.counter }}" style="display: none;">
 											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
 										</span>
 									</p>
-									<button class="btn btn-secondary" onclick="readmore(1)" id="myBtn1" style="margin-top: 15px;">Read more</button>
+									<button class="btn btn-secondary" onclick="readmore({{ forloop.counter }})" id="myBtn{{ forloop.counter }}" style="margin-top: 15px;">Read more</button>
 
 								</div>
 
@@ -170,105 +172,9 @@
 							</div>
 
 						</div>
+						{% endfor %}
 
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-
-								<span class="time">
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star"></span>
-								</span>
-
-								<h3 class="title">
-
-									<p class="without-selection">Paper For Academic Research</p>
-									<div class="juiceboxes with-selection">
-										<input type="checkbox" id="box-2" name="check">
-										<label for="box-2">Paper For Academic Research</label>
-									</div>
-
-								</h3>
-
-								<div class="c100 p85 small">
-									<span>85%</span>
-									<div class="slice">
-										<div class="bar"></div>
-										<div class="fill"></div>
-									</div>
-								</div>
-
-								<div style="margin-left: 100px;">
-
-									<p>
-										Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
-										<span id="dots2">...</span>
-										<span id="more2" style="display: none;">
-											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
-										</span>
-									</p>
-									<button class="btn btn-secondary" onclick="readmore(2)" id="myBtn2" style="margin-top: 15px;">Read more</button>
-
-								</div>
-
-								<div class="spacer" data-height="50"></div>
-
-							</div>
-
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-
-								<span class="time">
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star"></span>
-								</span>
-
-								<h3 class="title">
-
-									<p class="without-selection">Paper For Academic Research</p>
-									<div class="juiceboxes with-selection">
-										<input type="checkbox" id="box-3" name="check">
-										<label for="box-3">Paper For Academic Research</label>
-									</div>
-
-								</h3>
-
-								<div class="c100 p85 small">
-									<span>85%</span>
-									<div class="slice">
-										<div class="bar"></div>
-										<div class="fill"></div>
-									</div>
-								</div>
-
-								<div style="margin-left: 100px;">
-
-									<p>
-										Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
-										<span id="dots3">...</span>
-										<span id="more3" style="display: none;">
-											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
-										</span>
-									</p>
-									<button class="btn btn-secondary" onclick="readmore(3)" id="myBtn3" style="margin-top: 15px;">Read more</button>
-
-								</div>
-
-								<div class="spacer" data-height="50"></div>
-
-							</div>
-
-						</div>
-
+						
 						<!-- main line -->
 						<span class="line"></span>
 
