@@ -75,7 +75,13 @@ def scrape_papers_info(query_str):
 		empty_flag = True
 
 		for y in range(len(splits)):
-			pdf_btn = splits[y].find_element_by_css_selector('span.cl-button__label')
+
+			while True:
+				try:
+					pdf_btn = splits[y].find_element_by_css_selector('span.cl-button__label')
+					break
+				except Exception as e:
+					pass
 
 			if pdf_btn.text == "View PDF on arXiv":
 				empty_flag = False
@@ -143,7 +149,7 @@ def scrape_papers_info(query_str):
 					pass
 			
 			# halt a little bit to let the next page load properly
-			time.sleep(5)
+			time.sleep(3)
 
 	# save the final result
 	list_ = []

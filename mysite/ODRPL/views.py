@@ -19,10 +19,10 @@ def abstracts(request):
 
 		# clearing extra/duplicate whitespaces
 		query_text = " ".join(query_text.split())
-
 		papers = scrp.scrape_papers_info(query_text)
 
 		context = {
+			"query_text": query_text,
 			"papers": papers
 		}
 
