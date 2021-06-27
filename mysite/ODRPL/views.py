@@ -4,6 +4,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 
+#from scraper.SS_scraper import scrape_papers_info
+from .scraper import SS_scraper as scrp
+#from SS_scraper import scrape_papers_info
+
 def index(request):
 	return render(request, 'index.html')
 
@@ -16,9 +20,10 @@ def abstracts(request):
 		# clearing extra/duplicate whitespaces
 		query_text = " ".join(query_text.split())
 
+		papers = scrp.scrape_papers_info(query_text)
+
 		context = {
-			"query_text": query_text,
-			"size": 10
+			"papers": papers
 		}
 
 		return render(request, 'abstracts.html', context)

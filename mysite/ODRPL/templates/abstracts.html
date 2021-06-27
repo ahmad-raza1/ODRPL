@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+{% load filter_tags %}
 
 {% block title %}Abstracts{% endblock %}
+
+{% block head %}
+<style>
+.mytitle {
+	color = #2b537f !important;
+}
+
+.mytitle:hover {
+	color: #073d78;
+}
+</style>
+{% endblock %}
 
 {% block mode %}class="light"{% endblock %}
 
@@ -122,7 +135,7 @@
 					<!-- timeline wrapper -->
 					<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
 
-						{% for i in '0123'|make_list %}
+						{% for paper in papers %}
 
 						<!-- timeline item -->
 						<div class="timeline-container wow fadeInUp">
@@ -136,12 +149,14 @@
 									<span class="fa fa-star"></span>
 								</span>
 
-								<h3 class="title">
+								<h3 class="title mytitle">
 
-									<p class="without-selection">Paper For Academic Research</p>
+									<a href="{{ paper.url }}" target="_blank" class="without-selection mytitle">{{ paper.title }}</a>
+
+									<!--<p class="without-selection">{{ paper.title }}</p>-->
 									<div class="juiceboxes with-selection">
 										<input type="checkbox" id="box-{{ forloop.counter }}" name="check">
-										<label for="box-{{ forloop.counter }}">Paper For Academic Research</label>
+										<label for="box-{{ forloop.counter }}">{{ paper.title }}</label>
 									</div>
 
 								</h3>
@@ -154,20 +169,24 @@
 									</div>
 								</div>
 
-								<div style="margin-left: 100px;">									
+								<div style="margin-left: 100px;">
 
-									<p>
-										Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. 
+									<p style="text-align: justify; text-justify: inter-word; padding-right: 50px;">
+										{% with paper.abstract|split:"." as sentences %}
+										<span id="myAbstract{{ forloop.counter }}">{{ sentences.0 }}</span>
+										{% endwith %}
+										<!--Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.-->
 										<span id="dots{{ forloop.counter }}">...</span>
 										<span id="more{{ forloop.counter }}" style="display: none;">
-											Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.
+											{{ paper.abstract }}
+											<!--Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.-->
 										</span>
 									</p>
 									<button class="btn btn-secondary" onclick="readmore({{ forloop.counter }})" id="myBtn{{ forloop.counter }}" style="margin-top: 15px;">Read more</button>
 
 								</div>
 
-								<div class="spacer" data-height="50"></div>
+								<!--<div class="spacer" data-height="50"></div>-->
 
 							</div>
 
@@ -221,15 +240,22 @@
 <script type="text/javascript">
 	function readmore(value) {
 
+		var shortAbstract = document.getElementById("myAbstract"+value);
 		var dots = document.getElementById("dots"+value);
 		var moreText = document.getElementById("more"+value);
 		var btnText = document.getElementById("myBtn"+value);
 
 		if (dots.style.display === "none") {
+
+			shortAbstract.style.display = "inline";
+
 			dots.style.display = "inline";
 			btnText.innerHTML = "Read more"; 
 			moreText.style.display = "none";
 		} else {
+
+			shortAbstract.style.display = "none";
+
 			dots.style.display = "none";
 			btnText.innerHTML = "Read less"; 
 			moreText.style.display = "inline";
