@@ -2,9 +2,9 @@ $(document).ready(() => {
 
 	console.log("DOM ready!");
 
-	/*$('#select-all').click(() => {
+	$('#select-all').click(() => {
 		$("#select-all").toggle();
-	});*/
+	});
 
 	//onClick="toggle(this)
 

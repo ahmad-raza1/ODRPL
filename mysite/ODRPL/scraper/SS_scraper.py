@@ -177,7 +177,7 @@ def scrape_papers_info(query_str):
 
 	print("\n\n----------------------------------\n\n")
 	print(json.dumps(list_, sort_keys=False, indent=4))
-	"""
+	""""
 	with open("sample.json", "w") as outfile: 
 		json.dump(list_, outfile)
 	"""

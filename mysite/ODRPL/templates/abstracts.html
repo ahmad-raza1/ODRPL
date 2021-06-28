@@ -105,6 +105,9 @@
 
 			<a href="#" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: 20px; margin-left: 15px;" id="selection">Search For Full Papers</a>
 
+<form method="post" action="{% url 'full_papers' %}">
+{% csrf_token %}
+
 			<div class="collapse" id="collapseExample" style="margin-top: 10px; margin-left: 15px;">
 				<div class="card">
 					<div class="card-body">
@@ -118,7 +121,7 @@
 
 						</div>
 						<a href="loader.html">
-							<button class="btn btn-default" style="margin-top: 15px;">
+							<button type="submit" class="btn btn-default" style="margin-top: 15px;">
 								Search For Full Papers
 							</button>
 						</a>
@@ -155,7 +158,7 @@
 
 									<!--<p class="without-selection">{{ paper.title }}</p>-->
 									<div class="juiceboxes with-selection">
-										<input type="checkbox" id="box-{{ forloop.counter }}" name="check">
+										<input type="checkbox" id="box-{{ forloop.counter }}" name="check" value="{{ forloop.counter }}">
 										<label for="box-{{ forloop.counter }}">{{ paper.title }}</label>
 									</div>
 
@@ -182,7 +185,7 @@
 											<!--Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.-->
 										</span>
 									</p>
-									<button class="btn btn-secondary" onclick="readmore({{ forloop.counter }})" id="myBtn{{ forloop.counter }}" style="margin-top: 15px;">Read more</button>
+									<button type="button" class="btn btn-secondary" onclick="readmore({{ forloop.counter }})" id="myBtn{{ forloop.counter }}" style="margin-top: 15px;">Read more</button>
 
 								</div>
 
@@ -202,6 +205,9 @@
 				</div>
 
 			</div>
+
+</form>
+
 
 			<div class="center">
 
