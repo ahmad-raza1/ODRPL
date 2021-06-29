@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('ODRPL_SECRET_KEY_DJANGO')
 #DEBUG = True
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'research-paper-locator.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
