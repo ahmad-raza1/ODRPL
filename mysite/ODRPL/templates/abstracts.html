@@ -120,11 +120,11 @@
 							</div>
 
 						</div>
-						<a href="loader.html">
+						<!--<a href="loader.html">-->
 							<button type="submit" class="btn btn-default" style="margin-top: 15px;">
 								Search For Full Papers
 							</button>
-						</a>
+						<!--</a>-->
 					</div>
 				</div>
 			</div>
@@ -143,14 +143,15 @@
 						<!-- timeline item -->
 						<div class="timeline-container wow fadeInUp">
 							<div class="content">
-
+								{% with enable_star="text-warning" %}
 								<span class="time">
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star text-warning"></span>
-									<span class="fa fa-star"></span>
+									<span class="fa fa-star {% if paper.score > 0  %}{{ enable_star }}{% endif %}"></span>
+									<span class="fa fa-star {% if paper.score > 20 %}{{ enable_star }}{% endif %}"></span>
+									<span class="fa fa-star {% if paper.score > 40 %}{{ enable_star }}{% endif %}"></span>
+									<span class="fa fa-star {% if paper.score > 60 %}{{ enable_star }}{% endif %}"></span>
+									<span class="fa fa-star {% if paper.score > 80 %}{{ enable_star }}{% endif %}"></span>
 								</span>
+								{% endwith %}
 
 								<h3 class="title mytitle">
 
@@ -164,8 +165,8 @@
 
 								</h3>
 
-								<div class="c100 p85 small">
-									<span>85%</span>
+								<div class="c100 p{{ paper.score }} small">
+									<span style="color: #6c757d;">{{ paper.score }}%</span>
 									<div class="slice">
 										<div class="bar"></div>
 										<div class="fill"></div>

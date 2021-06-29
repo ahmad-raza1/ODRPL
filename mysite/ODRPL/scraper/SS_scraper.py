@@ -1,5 +1,5 @@
 from . import constants
-import sys, time, json, re
+import sys, os, time, json, re
 from .download import download_file
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -32,8 +32,13 @@ papers, which have PDF available from Semantic Scholar site:
 def scrape_papers_info(query_str):
 	
 	chrome_options = webdriver.ChromeOptions()
+
 	chrome_options.add_argument('--headless')
-	driver = webdriver.Chrome(options=chrome_options)
+	chrome_options.add_argument('--headless')
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_options.add_argument("--no-sandbox")
+
+	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 	driver.maximize_window()
 
 	driver.get('https://www.semanticscholar.org/')

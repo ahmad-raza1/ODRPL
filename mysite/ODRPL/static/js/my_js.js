@@ -2,23 +2,25 @@ $(document).ready(() => {
 
 	console.log("DOM ready!");
 
-	$('#select-all').click(() => {
+	/*$('#select-all').click(() => {
 		$("#select-all").toggle();
-	});
+	});*/
 
 	//onClick="toggle(this)
 
+
+
 	$('#select-all').click(function(event) {   
-	if(this.checked) {
-		$(':checkbox').each(function() {
-			this.checked = true;                        
-		});
-	} else {
-		$(':checkbox').each(function() {
-			this.checked = false;                       
-		});
-	}
-});
+		if (this.checked) {
+			$(':checkbox').each(function() {
+				this.checked = true;                        
+			});
+		} else {
+			$(':checkbox').each(function() {
+				this.checked = false;                       
+			});
+		}
+	});
 
 	$('input[name=check]').click(function() {
 		$("#select-all").prop("checked", false);

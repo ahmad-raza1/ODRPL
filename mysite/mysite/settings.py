@@ -21,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h@sh)_k%&kmsaax3_0_16jw^sjn^g63whs8%di71mfr7v5%m64'
+#SECRET_KEY = 'h@sh)_k%&kmsaax3_0_16jw^sjn^g63whs8%di71mfr7v5%m64'
+SECRET_KEY = os.environ.get("ODRPL_SECRET_KEY_DJANGO")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'research-paper-locator.herokuapp.com']
 
 
 # Application definition
@@ -38,11 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ODRPL.apps.OdrplConfig'
+    'ODRPL'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # whitenoise middleware for deployment
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,3 +142,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 #VENV_PATH = os.path.dirname(BASE_DIR)
 #STATIC_ROOT = os.path.join(VENV_PATH, 'staticfiles')
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
