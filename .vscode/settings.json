@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "C:\\Users\\PC\\anaconda3\\envs\\fyp\\python.exe",
+    "python.analysis.extraPaths": ["./mysite/ODRPL"]
+}
